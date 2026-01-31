@@ -173,8 +173,6 @@ applications:
       repoURL: https://github.com/whythatfunction/home-ai
       targetRevision: HEAD
       path: manifests/converse-mcp
-      helm:
-        releaseName: converse-mcp
     destination:
       namespace: converse-llm
     syncPolicy:
