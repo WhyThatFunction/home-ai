@@ -204,8 +204,6 @@ applications:
       repoURL: https://github.com/whythatfunction/home-ai
       targetRevision: HEAD
       path: manifests/converse-auth
-      helm:
-        releaseName: converse-auth
     destination:
       namespace: converse-llm
     syncPolicy:
