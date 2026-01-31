@@ -1,5 +1,34 @@
 applications:
 
+  - name: redis
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    project: base-apps
+    source:
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 24.0.0
+      chart: redis
+      helm:
+        valuesObject:
+          global:
+            defaultStorageClass: linode-block-storage
+          auth:
+            enabled: false
+          image:
+            repository: bitnamilegacy/redis
+          architecture: replication
+          replica:
+            replicaCount: 1
+    destination:
+      namespace: redis-system
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+      automated:
+        prune: true
+        selfHeal: true
+
   - name: eg
     finalizers:
       - resources-finalizer.argocd.argoproj.io
@@ -28,7 +57,7 @@ applications:
                   redis:
                     # Update this URL to match your Redis service location
                     # This assumes Redis is deployed using the redis.yaml in this directory
-                    url: redis-master.database.svc.cluster.local:6379
+                    url: redis-master.redis-system.svc.cluster.local:6379
               provider:
                 type: Kubernetes
                 kubernetes:
