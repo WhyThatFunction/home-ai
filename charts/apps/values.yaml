@@ -171,7 +171,7 @@ applications:
       targetRevision: 0.22.0
       chart: authorino-operator
       helm:
-        releaseName: aieg-crd
+        releaseName: authorino-operator
     destination:
       namespace: authorino-system
     syncPolicy:
