@@ -9,7 +9,6 @@ applications:
       targetRevision: 24.0.0
       chart: redis
       helm:
-        releaseName: redis
         valuesObject:
           global:
             defaultStorageClass: linode-block-storage
