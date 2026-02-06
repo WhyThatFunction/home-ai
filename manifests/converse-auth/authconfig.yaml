@@ -16,3 +16,6 @@ spec:
       credentials:
         authorizationHeader:
           prefix: APIKEY
+    keycloak:
+      jwt:
+        issuerUrl: https://accounts.ssegning.com/realms/koufan-tests
