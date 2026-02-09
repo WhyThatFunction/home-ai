@@ -177,36 +177,17 @@ applications:
             host: "converse-analytics.camer.digital"
             annotations:
               cert-manager.io/cluster-issuer: cert-home-cert-http
+          additionalEnv:
+            - name: PHOENIX_OAUTH2_KEYCLOAK_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: converse-phoenix-keycloak
+                  key: client_secret
           auth:
             disableBasicAuth: true
             useSecureCookies: true
             createSecret: false
-            secret:
-              - name: "PHOENIX_SECRET"
-                valueFrom:
-                  secretKeyRef:
-                    name: converse-phoenix
-                    key: secret
-
-              - name: "PHOENIX_ADMIN_SECRET"
-                valueFrom:
-                  secretKeyRef:
-                    name: converse-phoenix
-                    key: admin_secret
-
-              - name: "PHOENIX_POSTGRES_PASSWORD"
-                value: "postgres"
-
-              - name: "PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD"
-                valueFrom:
-                  secretKeyRef:
-                    name: converse-phoenix
-                    key: admin_initial_password
-              - name: PHOENIX_OAUTH2_KEYCLOAK_CLIENT_SECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: converse-phoenix-keycloak
-                    key: client_secret
+            name: "converse-phoenix"
             oauth2:
               enabled: true
               providers:
