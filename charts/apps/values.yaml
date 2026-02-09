@@ -177,6 +177,8 @@ applications:
             host: "analytics.ai.camer.digital"
             annotations:
               cert-manager.io/cluster-issuer: cert-home-cert-http
+            tls:
+              enabled: true
           additionalEnv:
             - name: PHOENIX_OAUTH2_KEYCLOAK_CLIENT_SECRET
               valueFrom:
