@@ -234,7 +234,7 @@ applications:
       - resources-finalizer.argocd.argoproj.io
     source:
       repoURL: https://github.com/ADORSYS-GIS/ai-helm
-      targetRevision: HEAD
+      targetRevision: feat/observability
       path: charts/ai-gateway-core
       helm:
         releaseName: converse-core
