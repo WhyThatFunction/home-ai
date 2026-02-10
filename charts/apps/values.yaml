@@ -36,7 +36,7 @@ applications:
     project: ai
     source:
       repoURL: oci://docker.io/envoyproxy/gateway-helm
-      targetRevision: v0.0.0-latest
+      targetRevision: v1.6.0
       path: .
       helm:
         releaseName: eg
