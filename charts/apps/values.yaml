@@ -313,8 +313,7 @@ applications:
               - api.ai.camer.digital
             secretName: converse-llm-tls
             issuer:
-              enabled: false
-            existingIssuer:
+              create: false
               kind: ClusterIssuer
               name: cert-home-cert-http
             redirectToHttps: true
