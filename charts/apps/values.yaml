@@ -35,8 +35,8 @@ applications:
       - resources-finalizer.argocd.argoproj.io
     project: ai
     source:
-      repoURL: oci://docker.io/envoyproxy/gateway-helm
-      targetRevision: v1.6.0
+#      repoURL: oci://docker.io/envoyproxy/gateway-helm
+      targetRevision: v1.7.0
       path: .
       helm:
         releaseName: eg
