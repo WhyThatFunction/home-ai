@@ -15,4 +15,3 @@ spec:
           namespace: converse-llm
           port: 50051
           kind: Service
-          weight: 1
