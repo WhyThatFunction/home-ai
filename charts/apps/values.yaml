@@ -325,9 +325,9 @@ applications:
               name: cert-home-cert-http
             redirectToHttps: true
           envoyProxy:
-            logging:
-              level:
-                default: debug
+#            logging:
+#              level:
+#                default: debug
             provider:
               type: Kubernetes
               kubernetes:
