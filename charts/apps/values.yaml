@@ -153,17 +153,14 @@ applications:
                 issuerName: self-signed-ca
                 # The name of the certificate.
                 certificateName: self-signed-cert-for-mutating-webhook-managed
-          # extProc:
-          #   extraEnvVars:
-          #     - name: OTEL_EXPORTER_OTLP_ENDPOINT
-          #       value: http://phoenix-svc.converse-phoenix:6006
-          #     - name: OTEL_METRICS_EXPORTER
-          #       value: none
-          #     - name: OTEL_EXPORTER_OTLP_HEADERS
-          #       valueFrom:
-          #         secretKeyRef:
-          #           name: phoenix-envoy-ai-gateway-system-telemetry
-          #           key: apiKey
+          extProc:
+            extraEnvVars:
+                - name: OTEL_EXPORTER_OTLP_ENDPOINT
+                  value: "http://phoenix-svc.converse-phoenix:6006"
+                - name: OTEL_METRICS_EXPORTER
+                  value: "none"
+                - name: OTEL_EXPORTER_OTLP_HEADERS
+                  value: 'Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJBcGlLZXk6MTMifQ.wqPlCASB3JeDJPuxRMtCoQypQ_b6f45oUKtBhelLtEI'
     destination:
       namespace: envoy-ai-gateway-system
     syncPolicy:
